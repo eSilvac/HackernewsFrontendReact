@@ -41,16 +41,17 @@ class PostForm extends Component {
     } finally {
       this.setState({
         loading: false,
+        redirect: true
       });
-      return <Redirect to='/' />
     }
   }
 
   render () {
-    const { error, loading } = this.state;
+    const { error, loading, redirect } = this.state;
 
     if (loading) return <Loading/>;
     if (error) return <p>Upps! Algo salío mal</p>;
+    if (redirect) return <Redirect to='/'/>;;
     return (
       <Form onSubmit={this.mySubmitHandler.bind(this)}>
         <Form.Group >

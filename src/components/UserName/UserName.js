@@ -18,7 +18,6 @@ class Posts extends Component {
 
     try {
       const { data } = await Api.get("/user/" + this.props.userId);
-      console.log("asd")
       this.setState({ user: data });
     } catch (error) {
       console.log(error);
